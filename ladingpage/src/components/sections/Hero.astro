@@ -1,0 +1,280 @@
+---
+import Button from "../shared/Button.astro";
+import Container from "../shared/Container.astro";
+import Paragraph from "../shared/Paragraph.astro";
+import ByNumber from "./ByNumber.astro";
+---
+
+<section class="relative pt-32 lg:pt-36">
+    <Container className={"flex flex-col lg:flex-row gap-10 lg:gap-12"}>
+        <div class="absolute w-full lg:w-1/2 inset-y-0 lg:right-0">
+            <span
+                class="absolute -left-6 md:left-4 top-24 lg:top-28 w-24 h-24 rotate-90 skew-x-12 rounded-3xl bg-green-400 blur-xl opacity-60 lg:opacity-95 lg:block hidden"
+            ></span>
+            <span
+                class="absolute right-4 bottom-12 w-24 h-24 rounded-3xl bg-primary blur-xl opacity-80"
+            ></span>
+        </div>
+        <span
+            class="w-4/12 lg:w-2/12 aspect-square bg-gradient-to-tr from-primary to-green-400 absolute -top-5 lg:left-0 rounded-full skew-y-12 blur-2xl opacity-40 skew-x-12 rotate-90"
+        ></span>
+        <div
+            class="relative flex flex-col items-center text-center lg:text-left lg:py-7 xl:py-8
+        lg:items-start lg:max-w-none max-w-3xl mx-auto lg:mx-0 lg:flex-1 lg:w-1/2"
+        >
+            <h1
+                class="text-3xl/tight sm:text-4xl/tight md:text-5xl/tight xl:text-6xl/tight
+             font-bold text-heading-1"
+            >
+                Social Media <span
+                    class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600"
+                    >Marketing</span
+                > is the Best Ever.
+            </h1>
+            <Paragraph className="mt-8">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Dolores repellat perspiciatis aspernatur quis voluptatum porro
+                incidunt, libero sequi quos eos velit
+            </Paragraph>
+
+            <div class="mt-10 w-full flex max-w-md mx-auto lg:mx-0">
+                <div class="flex sm:flex-row flex-col gap-5 w-full">
+                    <script type="module" client:load>
+  const form = document.querySelector("form");
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const data = {
+      nombre_completo: document.querySelector("#fullName").value,
+      correo: document.querySelector("#email").value,
+      telefono: document.querySelector("#phone").value,
+      mensaje: document.querySelector("#message").value,
+    };
+
+    try {
+      const res = await fetch("http://localhost:3000/api/contacto", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      const result = await res.json();
+      if (res.ok) {
+        alert("✅ Mensaje enviado correctamente");
+        form.reset();
+      } else {
+        alert("❌ Error: " + result.message);
+        console.log(result.errors);
+      }
+    } catch (error) {
+      alert("❌ Error en el envío del formulario");
+      console.error(error);
+    }
+  });
+</script>
+
+                    <form action="#" class="w-full max-w-2xl mx-auto space-y-4">
+                        <!-- Campo Nombre Completo -->
+                        <div
+                            class="py-1 pl-6 w-full pr-1 flex gap-3 items-center text-heading-3 shadow-lg shadow-box-shadow
+              border border-box-border bg-box-bg rounded-full ease-linear focus-within:bg-body focus-within:border-primary"
+                        >
+                            <span
+                                class="min-w-max pr-2 border-r border-box-border"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="20"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-5 h-5"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+                                    ></path>
+                                </svg>
+                            </span>
+                            <input
+                                type="text"
+                                name="fullName"
+                                id="fullName"
+                                placeholder="Tu nombre completo"
+                                required
+                                class="w-full py-3 outline-none bg-transparent"
+                            />
+                        </div>
+
+                        <!-- Campo Gmail -->
+                        <div
+                            class="py-1 pl-6 w-full pr-1 flex gap-3 items-center text-heading-3 shadow-lg shadow-box-shadow
+              border border-box-border bg-box-bg rounded-full ease-linear focus-within:bg-body focus-within:border-primary"
+                        >
+                            <span
+                                class="min-w-max pr-2 border-r border-box-border"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="20"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-5 h-5"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M21.75 9v.906a2.25 2.25 0 01-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 001.183 1.981l6.478 3.488m8.839 2.51l-4.66-2.51m0 0l-1.023-.55a2.25 2.25 0 00-2.134 0l-1.022.55m0 0l-4.661 2.51m16.5 1.615a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V8.844a2.25 2.25 0 011.183-1.98l7.5-4.04a2.25 2.25 0 012.134 0l7.5 4.04a2.25 2.25 0 011.183 1.98V19.5z"
+                                    ></path>
+                                </svg>
+                            </span>
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
+                                placeholder="tu.email@gmail.com"
+                                required
+                                class="w-full py-3 outline-none bg-transparent"
+                            />
+                        </div>
+
+                        <!-- Campo Teléfono -->
+                        <div
+                            class="py-1 pl-6 w-full pr-1 flex gap-3 items-center text-heading-3 shadow-lg shadow-box-shadow
+              border border-box-border bg-box-bg rounded-full ease-linear focus-within:bg-body focus-within:border-primary"
+                        >
+                            <span
+                                class="min-w-max pr-2 border-r border-box-border"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="20"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-5 h-5"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
+                                    ></path>
+                                </svg>
+                            </span>
+                            <input
+                                type="tel"
+                                name="phone"
+                                id="phone"
+                                placeholder="Tu número de teléfono"
+                                required
+                                class="w-full py-3 outline-none bg-transparent"
+                            />
+                        </div>
+
+                        <!-- Campo Mensaje -->
+                        <div
+                            class="py-1 pl-6 w-full pr-6 flex gap-3 text-heading-3 shadow-lg shadow-box-shadow
+              border border-box-border bg-box-bg rounded-2xl ease-linear focus-within:bg-body focus-within:border-primary"
+                        >
+                            <span
+                                class="min-w-max pr-2 border-r border-box-border pt-3"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="20"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-5 h-5"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.691 1.357 3.061 3.031 3.061h4.969c1.621 0 2.969-1.28 2.969-2.876V9.282c0-1.597-1.348-2.877-2.969-2.877H5.781c-1.674 0-3.031 1.37-3.031 3.061v9.15z"
+                                    ></path>
+                                </svg>
+                            </span>
+                            <textarea
+                                name="message"
+                                id="message"
+                                placeholder="Escribe tu mensaje aquí..."
+                                required
+                                rows="4"
+                                class="w-full py-3 outline-none bg-transparent resize-none"
+                            ></textarea>
+                        </div>
+
+                        <!-- Botón de Envío -->
+                        <div class="flex justify-center pt-2">
+                            <Button
+                                variant={"primary"}
+                                className={"min-w-max text-white px-8"}
+                            >
+                                <span class="hidden sm:flex relative z-[5]">
+                                    Enviar Mensaje
+                                </span>
+                                <span class="flex sm:hidden relative z-[5]">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke-width="1.5"
+                                        stroke="currentColor"
+                                        class="w-5 h-5"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"
+                                        ></path>
+                                    </svg>
+                                </span>
+                            </Button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+                    <!-- <form action="#"  class="py-1 pl-6 w-full pr-1 flex gap-3 items-center text-heading-3 shadow-lg shadow-box-shadow
+                      border border-box-border bg-box-bg rounded-full ease-linear focus-within:bg-body  focus-within:border-primary">
+                        <span class="min-w-max pr-2 border-r border-box-border">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 9v.906a2.25 2.25 0 01-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 001.183 1.981l6.478 3.488m8.839 2.51l-4.66-2.51m0 0l-1.023-.55a2.25 2.25 0 00-2.134 0l-1.022.55m0 0l-4.661 2.51m16.5 1.615a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V8.844a2.25 2.25 0 011.183-1.98l7.5-4.04a2.25 2.25 0 012.134 0l7.5 4.04a2.25 2.25 0 011.183 1.98V19.5z" />
+                            </svg>                                                                  
+                        </span>
+                        <input type="email" name="" id="" placeholder="johndoe@gmail.com" class="w-full py-3 outline-none bg-transparent">
+                        <Button variant={"primary"} className={"min-w-max text-white"}>
+                            <span class="hidden sm:flex relative z-[5]">
+                                Get Started
+                            </span>
+                            <span class="flex sm:hidden relative z-[5]">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                                </svg>                                      
+                            </span>
+                        </Button>
+                    </form> -->
+        </div>
+
+        <div
+            class="flex flex-1 lg:w-1/2 lg:h-auto relative lg:max-w-none lg:mx-0 mx-auto max-w-3xl"
+        >
+            <img
+                src="/images/image1.webp"
+                alt="Hero image"
+                width="2350"
+                height="2359"
+                class="lg:absolute lg:w-full lg:h-full rounded-3xl object-cover lg:max-h-none max-h-96"
+            />
+        </div>
+    </Container>
+
+    <ByNumber />
+</section>
